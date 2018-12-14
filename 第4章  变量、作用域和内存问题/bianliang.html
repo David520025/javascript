@@ -1,0 +1,97 @@
+  <!DOCTYPE html>
+ <html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>第四章</title>   
+     </head>
+
+     <body>
+     	<div > 
+          <ol>ECMAScript 变量包含两种不同数据类型的值：
+              <li>基本类型值。按值访问，可以保存在变量中的实际的值</li>
+              <li>引用类型值。保存在内存中的对象，（Javascript不允许直接访问内存中的位置，实际上操作对象时，是操作对象的引用而不是实际的对象。）引用类型的值是按引用访问的。(这种说法也不严密，因为在为其添加属性时，操作的是实际的对象。)</li>
+          </ol>
+          <ul>动态的属性：
+              <li>只能给引用类型值动态地添加属性，以便将来使用。 基本类型值虽然操作不会报错，但是无效。</li>
+          </ul>
+          <ul>复制变量值：
+              <li>基本类型值复制后彼此独立，互不影响</li>
+              <li>复制前后，两个变量实际上指向同一个指针，改变一个就改变了另一个.</li>
+          </ul>
+          <ul>传递参数：
+              <li>基本类型值传递是按值传递。引用类型也是按值传递，但传递的参数也会按照引用来访问同一个对象，但是在函数内部重新将新对象赋给变量时，同时将属性更改，外部的属性不会更改，这就说明了参数不是按照引用传递的。</li>
+          </ul>
+          <ul>检测类型：
+              <li>typeof</li>
+              <li>instanceof</li>
+          </ul>
+          <ul>执行环境和作用域：
+              <li>执行环境定义了变量和函数有权访问的其它数据，决定了它们各自的行为。</li>
+              <li>作用域链。作用域链的前端是当前执行代码所在环境的变量对象。全局执行环境的变量对象始终是作用域链中的最后一个对象。</li>
+          </ul>
+
+          <ul style="color: red;">延长作用域链：
+              <li>try-catch语句的catch块</li>
+              <li>with语句</li>
+          </ul>
+
+           <ul >没有块级作用域：
+              <li>声明变量</li>
+              <li>查询标识符</li>
+          </ul>
+
+          <ul >垃圾收集：
+              <li>标记清除</li>
+              <li>引用计数</li>
+              <li>性能问题</li>
+              <li>管理内存</li>
+          </ul>
+
+
+        </div>
+         
+     	<script type="text/javascript">
+          //    var result = addTen(count);
+
+     	    // function addTen(hh) {
+          //         hh += 10;
+                  
+          //         console.log("count");
+          //         console.log(hh);
+          //         console.log(arguments[0]);
+          //         return hh;
+          //   }  
+          //   var count = 20;
+            
+          //   sb = addTen(count);
+
+          //   console.log("count");
+          //   console.log(count);
+          //   console.log(result);
+          //   console.log(sb);
+          // var s = "Nichous";
+          // console.log(typeof s);
+
+          // var person = new Object();
+          // // person.name="David";
+          // console.log(person instanceof Object); 
+          // console.log(s instanceof Object);
+          
+          // function buildUrl(){
+          //   var qs = "?debug=true";
+          //   with (location){
+          //     var url=href + qs;
+          //   }
+          //   return url;
+          // }
+          //  console.log(url);
+          //  
+          var color ="blue";
+          function saycol(colo){
+            return color;
+          }
+          console.log(saycol());
+     	</script>
+     </body>
+ </html>

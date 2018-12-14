@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>typeof 操作符</title>   
+
+         <script type="text/javascript">
+         	var message = "some string";
+         	alert (typeof message);
+         	alert(typeof(message));
+         	alert(typeof 95);
+         	alert(typeof null);
+         	alert(typeof function function_name(argument) {
+         		// body...
+         	});
+         </script>
+     </head>
+
+     <body>
+       <div>注意：typeof 是一个操作符而不是一个函数.（因为脚本文件在head上，所以先加载解析完后才解析body）</div>
+       <ul>
+       	<li>因为特殊值null被认为是一个空的对象引用，所以返回object</li>
+       	<li>从技术角度讲，函数在ECMAScript中是对象，不是一种数据类型。然而函数确实有一些特殊属性因此用typeof操作符来区分函数和其它对象是很有必要的。</li>
+       </ul>
+
+     </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>第3章 基本概念</title>   
+     </head>
+
+     <body>
+        <div>
+            <ul><h3>本章内容</h3>
+                <li>语法
+                  <ol>
+                      <li>区分大小写---ECMAScript中的一切（变量、函数名和操作符）都区分大小写：变量名test和变量名Test分别表示两个不同的变量；函数名不能用typeof,因为它是一个关键字，但是typeOf则完全可以是个有效的函数名。</li>
+                      <li>标识符- 定义：指变量、函数、属性的名字，或者函数的参数。
+                         <ul>标识符可以是按照下列格式规则组合起来的一个或多个字符：
+                             <li>第一个字符必须是一个字母、下划线（—）或是一个美元符号（$）;</li>
+                             <li>其它字符可以是字母、下划线、美元符号或数字。</li>
+                             惯例（非强制性，但是更规范）：标识符采用驼峰大小写格式。第一个字母小写，剩余的每个单词首字母大写。
+                         </ul>
+                      </li>
+                      <li>注释：包括单行注释和块级注释</li>
+                      <li>严格模式   "use strict"</li>
+                      <li>语句，ECMAscript 中的语句以分号“；”结尾，虽然不是必须的但是不要省略它。
+                        <ul>
+                             <li>把多条语句组合到一个代码块中，代码块以左花括号（{）开头，右花括号（}）结尾：</li>
+                             <div> if (test) {</div>
+                             <div> test = false</div>
+                             <div> alert (test) ;</div>
+                             <div>  } </div>
+                        </ul>
+                      </li>
+                      <li>关键字和保留字（见P21）</li>
+                      <li>变量：一个用于保存值得占位符。
+                         <ul>
+                             <li>var 是一个关键字，后接一个变量名（即一个标识符）</li>
+                             <li>ECMAScript的变量是松散类型，即可以保存任何类型的数据</li>
+                             <li> var message ;   像这样子未经初始化的变量，会保存一个特殊的值 undefined。 也可以直接初始化的同时进行赋值： var message = "hi" ;</li>
+                             <li>var 操作符定义的变量将成为定义该变量的作用域中的局部变量。如果在函数中定义一个变量，这个变量在函数退出后就被销毁哦！</li>
+                             <li>message = "hi"; // 全局变量   省略var后就定义了全局变量。</li>
+                             <li>可以使用一条语句定义多个变量，把每个变量用逗号 ， 分开即可： var message = "hi" , found = false , age = 29 ;</li>
+                         </ul>
+                      </li>
+                  </ol>
+                </li>
+                <li>数据类型
+                     <ol>ECMAScript中有五种基本数据类型:Undefined、Null、Boolean、Number、string。一种复杂数据类型Object,它本质是由一组无序的名值对组成。
+                        <li>typeof 操作符
+                          <ul>对一个值使用typeof操作符可能返回下列某个字符串
+                              <li>"Undefined"---如果这个值未定义</li>
+                              <li>"Boolean"---如果这个值是布尔值</li>
+                              <li>"string"---如果这个值是字符串</li>
+                              <li>"Number"---如果这个值是数值</li>
+                              <li>"Object"---如果这个值是对象或Null</li>
+                              <li>"function"---如果这个值是函数</li>
+                          </ul>
+                         </li>
+                         <li style="color: red;">六种数据类型实操演示见其它文件</li>
+                     </ol>
+                </li>
+                <li>流控制语句</li>
+                <li>函数</li>
+            </ul>
+        </div>
+         
+         <script type="text/javascript"></script>
+     </body>
+</html>

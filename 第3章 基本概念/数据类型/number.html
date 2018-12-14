@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>Number 类型</title>  
+     </head>
+
+     <body>
+     	<div><h4>number 类型</h4>
+     		<ol>
+     			<li>55、23等常规写法都是解析为十进制</li>
+     			<li>八进制：字面值第一位必须为0，然后是八进制序列（0~7）。如果字面值超出了范围，那么前导0将被忽略，后面作为十进制解析。</li>
+     			<li>十六进制：前两位必须是0x,后跟任何十六进制数字（0~9及A~F）(a相当于10，f相当于15)。字母A~F可以大写也可以小写。
+     			</li>
+     			<li>浮点数值：就是该值至少包含一个小数点。保存浮点数值需要的空间是整数的两倍，所以ECMAScript会不失时机地将浮点数值转化为整数值。（如果小数点后没有数值） 浮点数值的最高精度是17位小数。</li>
+     			<li>数值范围：Number.MIN_VALUE --Number.MAX_VALUE (5e-324~1.79769e+308),超过这个区间的是-infinity 和 +infinity</li>
+     			<LI>确定一个数是不是有穷的（在最大值和最小值之间），可以使用 isFinite()函数
+     			<div>var result = Number.MAX_VALUE+Number.MAX_VALUE;</div>
+     			<div>alert(isFinite(result));//false</div>
+     			</LI>
+     			<li>NaN
+     			   <ul>
+     			   	 <li>NaN和任何值都不等，包括自己</li>
+     			   	 <li>任何值除以NaN都会返回NaN，因此不会影响其他代码的执行。（在其它编程语言中，任何值除以非数值都会报错，导致停止代码执行）</li>
+     			   	 <li>ECMAScript中定义了 isNaN（）函数
+     			   	      <div>console.log(isNaN(NaN)); //true<br>
+				     	  console.log(isNaN(10));//false<br>
+				     	  console.log(isNaN("10"));//false<br>
+				     	  console.log(isNaN("blue"));//true<br>
+				     	  console.log(isNaN(true));//false<br>
+				     	  </div>
+				     	  <div style="color: green;"><b>在基于对象调用isNaN（）函数时，会首先调用 valueof()方法，确定该方法返回的值是否可以转化为数值。如果不能，则基于这个返回值再调用toString()方法，再测试返回值。而这个过程也是ECMAScript中内置函数和操作符的一般执行流程。</b></div>
+     			   	 </li>
+     			   </ul>
+     			</li>
+     			<li>数值转换
+     			   <ul>有三个函数可以把非数值转换为数值：Number()、parseInt()和parseFloat().
+     			   	  <li>转型函数Number()可以用于任何数据类型，另外两个函数专门把字符串转换为数值。这三个函数对同样的输入会有返回不同的结果。</li>
+     			   	  <li>Number()函数的转换规则如下：
+     			   	  	  <ul>
+     			   	  	  	<li>如果是Boolean值，true和false将被转化为1和0.</li>
+     			   	  	  	<li>如果是数值，只是简单的传入和返回。</li>
+     			   	  	  	<li>如果是null值，则返回0.</li>
+     			   	  	  	<li>如果是undefined,返回NaN</li>
+     			   	  	  	<li>如果是字符串，则遵循下列规则：
+     			   	  	  	   <ul>
+     			   	  	  	   	  <li>如果字符串中只含有数字（包括前面带正号或负号的情况），则将其转换为十进制数值，即“1”会变成1，而“011”则会变成11<b style="color: green;">(注意：前导的零被忽略了.不要认为要当成八进制处理哦，打你脑袋！)</b></li>
+     			   	  	  	   	  <li>如果字符串包含有效的浮点格式，如“1.1”，则将其转换为大小相同的十进制整数值。</li>
+     			   	  	  	   	  <li>如果字符串是空的（不包含任何字符），则将其转换为0；</li>
+     			   	  	  	   	  <li>如果字符串中包含除上述格式之外的字符，则将其转换为NaN.</li>
+     			   	  	  	   </ul>
+     			   	  	  	</li>
+     			   	  	  	<li style="color: green;">如果是对象，则调用 valueof()方法，确定该方法返回的值是否可以转化为数值。如果不能（转换的结果是NaN），则基于这个返回值再调用toString()方法，再测试返回值。</li>
+     			   	  	  </ul>
+     			   	  </li>
+     			   	  <li>parseInt()函数
+     			   	      <ul>Number()函数转换字符串时太复杂而且不够合理，因此处理整数的时候更常用parseInt()函数
+     			   	      	 <li style="color: blue;"> <b style="color: green;">哈哈 首先必须说个易错点，再谈规则</b><br>
+     			   	      	     var num8 = parseInt("0x1f",16);<br>
+     	                         var num9 = parseInt(0x1f,16);<br>
+     	                         parseInt这个函数的输入变量第一个，在某一进制的数，第二个参数是进制，函数执行结果是返回对应的数字的十进制值。<br>
+     	                         第一个为解析转化字符串，得到31； <br>但是第二个首先得到31后，浏览器会认为这个31是16进制的31，计算出的结果是31转换后的49。
+     	                      </li>
+     	                      <li>parseInt()函数转换规则
+     	                        <ul>
+     	                        	<li>它忽略字符串前面的空格，直至找到第一个非空格字符。如果第一个字符不是数字字符或者负号，parseInt()就会返回NaN; <b>parseInt转换空字符串会返回NaN(Number()对空字符返回0.)</b></li>
+     	                        	<li>如果第一个字符是数字字符，则继续解析，直到解析完所有字符或者碰到了非数字字符（包括小数点）停止解析。</li>
+     	                        	<li>parseInt()也能识别各种整数格式(即前面讨论的十进制、八进制、十六进制) ,parseInt("",8/16);指定基数进行输出更加规范，可以保证得到正确的结果。指定基数后 八进制和十六进制的前导可以省略。</li>
+     	                        </ul>
+     	                      </li>
+     			   	      </ul>
+     			   	  </li>
+     			   	  <li>parseFloat()
+     			   	    <ul> 与parseInt()类似，也是从第一个位置开始解析，若是有效数字的话则一直解析完毕或者碰到无效的浮点数字为止。（第一个小数点是有效的）
+     			   	    	<li>parseFloat()只解析十进制值，所以不用指定第二个参数。</li>
+     			   	    	<li>十六进制的字符串始终会被转换为0</li>
+     			   	    	<li>可以识别前面所有讨论过浮点数值格式，包括3.125e7科学计数</li>
+     			   	    	<li>如果字符串包含一个可以解析为整数的值，或者小数点后全为0，输出的也是一个整数。</li>
+     			   	    </ul>
+     			   	  </li>
+     			   </ul>
+     			</li>
+     		</ol>
+     	</div>
+
+     <script type="text/javascript">
+     	var intNum = 55; //十进制整数
+     	console.log(intNum);
+     	var o = 070; //八进制的56
+     	var octalNum2 = 079; // 无效的八进制数值--解析为79；
+     	var octalNum3 =08 //无效的八进制数值--解析为8
+     	console.log(o);
+     	console.log(octalNum2);
+     	console.log(octalNum3);
+
+     	var hexnum1 = 0xab;
+     	var hexnum2 = 0xa;
+     	var  hello = 0x1f;
+     	console.log(hexnum1);
+     	console.log(hexnum2);
+     	console.log(hello);
+
+     	var floatnum1=1.1;
+     	var floatnum2=0.1;
+     	var floatNum3=.1;//有效，但是不推荐
+     	var floatNum4=1.;
+     	var floatNum5=10.;
+     	var floatNum6=3.25e7;
+     	var floatNum7=325e-7;
+     	console.log(floatnum1);
+     	console.log(floatnum2);
+     	console.log(floatNum3);
+     	console.log(floatNum4);
+     	console.log(floatNum5);
+     	console.log(floatNum6);
+     	console.log(floatNum7);
+
+        var a = 0.1;
+        var b = 0.2;
+        var c= a + b;
+        console.log(c);
+     	if (a + b == 0.3) {
+     		alert("you got 0.3.")
+     	}
+
+     	var result = Number.MAX_VALUE+Number.MAX_VALUE;
+     	console.log(isFinite(result));
+     	console.log( Number.MAX_VALUE);
+
+     	console.log(isNaN(NaN));
+     	console.log(isNaN(10));
+     	console.log(isNaN("10"));
+     	console.log(isNaN("blue"));
+     	console.log(isNaN(true));
+
+     	var num1 = Number("hello world");
+     	var num2 = Number("");
+     	var num3 = Number("00011");
+     	var num4 = Number(true);
+     	var num5 = Number("3.25,he");
+     	var num6 = Number(null);
+     	var num7 = parseInt("3.25,he")
+     	var num8 = parseInt("0x1f",16);
+     	var num9 = parseInt(0x1f,16);
+
+     	console.log(num1);
+     	console.log(num2);
+     	console.log(num3);
+     	console.log(num4);
+     	console.log(num5);
+     	console.log(num6);
+     	console.log(num7);
+     	console.log(num8);
+     	console.log(num9);
+     	console.log(0x1f);
+     	console.log(16);
+     	console.log(parseInt);
+
+     	var num10=parseInt("0xfz", 16);
+     	var num11=parseInt("050", 10);
+     	var num12=parseInt("050", 8);
+     	var num13=parseInt("50", 8);
+     	console.log(num10);
+     	console.log(num11);
+     	console.log(num12);
+     	console.log(num13);
+     </script>
+     </body>
+ </html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>布尔操作符</title>   
+     </head>
+
+     <body>
+      <ol> 布尔操作符
+      	<li>逻辑非 ！</li>
+      	<li>逻辑与  & &  </li>
+      	<li>逻辑或 ||</li>
+      </ol>
+
+      <ol> 乘性操作符 （如果不是数值，后台会调用Number()将其先转换）
+      	<li>乘法 *</li>
+      	<li>除法 / </li>
+      	<li>求模(余数) %</li>
+      </ol>
+
+       <ol> 加性操作符  + - 
+      	<li>加法 + 如果不是数值，后台会调用toString()将其先转换字符串，进行拼接</li>
+      	<li>减法 - （如果不是数值，后台会调用Number()   对象则valueof()将其先转换）</li>
+      </ol>
+
+      <ul> 关系操作符
+      	<li> < > <= >= </li>
+      </ul>
+
+      <ol> 相等操作符
+      	<li> 相等和不相等   先转换再比较</li>
+      	<li> 全等和不全等   仅比较不转换</li>
+      </ol>
+
+      <ul style="color: red;"> 条件操作符 p53 (不会用)
+      	<li> </li>
+      </ul>
+
+      <ul style="color: green;"> 赋值操作符 p53 (神奇)
+      	<li> </li>
+      </ul>
+      <ul> 逗号操作符
+      	<li> 还可以赋值哦，最后一项 </li>
+      </ul>
+
+
+
+
+
+     <script type="text/javascript">
+     	var  result = 3%2;
+     	console.log(result);
+
+     	var num1= 10;
+     	num1 /=100;
+     	// num1 *=100;
+     	console.log(num1);
+     </script>
+     </body>
+</html>

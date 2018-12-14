@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+ <html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>unary operator 和位操作符</title>   
+     </head>
+
+     <body>
+     <h4>只能操作一个值的操作符叫做<b>一元操作符</b></h4>
+     <ol>
+     	<li>递增和递减操作符 ++  --  各有两个版本（前置型和后置型）</li>
+     	<li>副效益</li>
+     	<li> 前置性和后置型的差别，源于操作与执行语句优先级相等，整个语句会从左至右被求值。</li>
+     </ol>
+
+     <h4>一元加和一元减操作符</h4>
+     <li>相当于正负号，另外一个作用是将非数值像Number()函数那样进行转型。</li>
+
+     <h4>位操作符</h4>
+     <h4>按位非（NOT）  ~  : 返回数值的反码，操作数的负值减1</h4>
+     <h4>按位与（AND） & ,他有两个操作数。</h4>
+     <h4>按位或（OR） |,他也有两个操作数。</h4>
+     <h4>按位异或（XOR）^,他也有两个操作数。</h4>
+     <h4>左移 <<   (左移不会影响操作数的符号位)</h4>
+     <h4>有符号的右移 >>   保留符号位</h4>
+     <h4>无符号的右移 >>>   所有32位都像右移动，0填充，对负数影响极大</h4>
+
+
+
+
+
+     <script type="text/javascript">
+     	var num1 = 2;
+     	var num2=20;
+     	var num3= num1-- + num2;
+     	var num4= num1+num2;
+     	console.log(num3);
+     	console.log(num4);
+
+     	var num5 = 25;
+     	var num6 = ~num5
+     	console.log(num6);
+
+     	var result = 25&3;
+     	console.log(result);
+     	var result1 = 25|3;
+     	console.log(result1);
+     	var result2 = 25^3;
+     	console.log(result2);
+
+
+     	var num = -18;
+     	console.log(num.toString(2));
+     </script>
+     </body>
+ </html>

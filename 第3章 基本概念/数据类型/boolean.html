@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>Boolean 类型</title>  
+     </head>
+
+
+     <body>
+       <ol>
+       	<li>Boolean类型只有两个字面值：true和false.</li>
+       	<li>ECMAScript中所有类型的值都有与这两个Boolean值等价的值。要将一个值转化为其对应的Boolean值，可以调用转型函数Boolean(),如下所示：
+       	     <div>var message = "hello world";</div>
+       	     <div>var messageAsBoolean = Boolean(message);<b>//打印出来的值是 true</b></div>
+       	</li>
+       	<li>true和false这两个值与数字值不是一回事，因此，true不一定等于1，而false也不一定等于0.规则详情见p27,这些规则对理解流控制语句很重要。</li>
+       	<li  style="color: red;">第二个script中的字符串 hello被自动转化为了Boolean值true.（我还没理解）？？？</li>
+       </ol>
+
+      <script type="text/javascript">
+     	var found= true;
+     	var lost=false;
+
+     	var message = "hello world";
+     	var messageAsBoolean = Boolean(message);
+     	console.log(message);
+     	console.log(messageAsBoolean);
+      </script>
+
+      <script type="text/javascript">
+      	var hello = "hello world!";
+     	if (hello) {
+     		alert("Value is true");
+     	}
+      </script>
+     </body>
+</html>

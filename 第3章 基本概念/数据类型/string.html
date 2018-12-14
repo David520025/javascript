@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>String 类型</title>  
+     </head>
+
+     <body>
+      <h3>String 类型</h3>
+      <div>用于表示由0或多个16位Unicode字符组成的字符序列，即字符串。单引号和双引号成对使用即可，解释方式是相同的。</div>
+      <div>一个空格也是一个字符</div>
+
+      <ol>
+      	<li>字符字面量：也叫转义序列</li>
+      	<li>字符串的特点：不可变的</li>
+      	<li>转换为字符串  toString()方法-（几乎每个字符串都有一个toString()方法，但null和undefined没有）</li>
+      	<li>在调用数值的toString()方法时，可以传递一个参数，输出数值的基数。<br>
+             var num = 10 ;      <br>
+             console.log(num.toString());  // "10"        <br>
+             console.log(num.toString(2));  // "1010"      <br>
+             console.log(num.toString(8));  // "12"         <br>
+      	</li>
+      	<li>转型函数String(),能将任何类型的值转换为字符串。
+      	   <ul>遵循以下规则
+      	   	<li>如果该值有toString()方法，则调用toString()方法</li>
+      	   	<li>如果值是null ,返回 “null”</li>
+      	   	<li> 如果值是undefined ,返回 “undefined”</li>
+      	   </ul>
+      	</li>
+      </ol>
+
+      <script type="text/javascript">
+      	var text = "This  is thek ! !！  letter sigma:\u03a3.";
+      	console.log(text);
+      	console.log(text.length);
+      	var text1 = "This  is the letter sigma:\x41.";
+      	console.log(text1);
+
+      	var lang = "java";
+      	lang = lang + "script";
+      	console.log(lang);
+         var num = 10 ;
+         console.log(num.toString(2));
+
+      </script>
+     </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>第2章 在HTML中使用Javascript</title>
+         <script type="text/javascript" >
+             function sayHi() {
+               alert("Hi");
+               alert("<\/script>");
+             }
+         </script>
+     </head>
+   
+     <body>
+         <button onclick="sayHi()">sayHi <\/script></button>
+         <div>
+          <h3>小结</h3>
+             <ol>
+                 <li>像HTML中插入script的主要方法就是使用script元素
+                   <ul>script在HTML4.01定义了下列六个属性
+                      <li>async:可选</li>
+                      <li>charset:</li>
+                      <li>defer</li>
+                      <li>langage:已废弃</li>
+                      <li>src</li>
+                      <li>type</li>  
+                   </ul>
+                 </li>
+                 <li>（曾经弄错过的）指定函数名称后要紧跟“（）”</li>
+                 <li>在使用script元素嵌入script代码时，只需指定type属性，同本例子；嵌入式的时候在任何位置遇到script的结束标签都会终止，所以再加上一个"\"就可以了</li>
+                 <li>带有src属性后的script标签之间的脚步文件会被忽略，只会下载外部的脚本文件</li>
+                 <li>script标签的位置放在head里面，浏览器就会先把脚本文件解析和执行完成后在碰到body元素；所以一般把脚本文件放在body元素最后一行。</li>
+                 <li>延迟脚步就是在script中设置 defer="defer"，脚步就会等到整个页面解析完后再运行。相当于 立即下载，延迟执行。</li>
+                 <li>异步脚步，类似于defer,async只适用于外部脚本文件，立即下载。 不同的是，多个异步脚步文件在一块时，并不会保证按照指定他们的先后顺序执行。</li>
+                 <li>noscript元素：用以在不支持script的浏览器中显示替代的内容
+                    <ul>
+                        <li>浏览器不支持脚步</li>
+                        <li>浏览器支持脚步，但是脚本被禁用</li>
+                        只有符合至少一个条件，noscript中的内容才会显示出来。
+                    </ul>
+                 </li>
+             </ol>
+         </div>
+     
+     </body>
+ </html>

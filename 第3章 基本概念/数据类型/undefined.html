@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>undefined 类型</title>   
+
+         <script type="text/javascript">
+          var message ;
+          alert(message == undefined);//true
+
+         // var age
+          alert(message);
+          alert(age);
+          alert(typeof message);
+          alert(typeof age);
+         </script>
+     </head>
+
+     <body>
+      <div>Undefined 类型只有一个值，即特殊的Undefined。在使var 声明变量但未对其加以初始化时，这个变量的值就是undefined.</div>
+       <li>typeof 检测的未初始化和未声明的都是变量的值都是undefined； 所以在初始化变量的时候尽量要进行赋值，这样子在检测的时候就知道哪些变量还没有被声明，而不是还没有初始化。</li><br>
+       <div style="color: red;">书上说 var age  不声明（不打分号）在进行 alert(age）；后会报错，实际上没有,和声明了变量一样都显示为undefined。</div><div style="color: yellow;">因为书上把//var age 给注释掉了，尴尬哈哈</div>
+     </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="zh">
+     <head>
+         <meta charset="utf-8">
+         <meta name="author" content="David">
+         <title>Null 类型</title>  
+     </head>
+
+     <body>
+       <h4>null类型是第二个只有一个值的数据类型，这个特殊的值是null。从逻辑上看null值表示一个空的对象指针，这也是使用typeof操作符检测null时会返回object的原因。</h4>
+
+       <div>
+         <ul>
+           <li>undefined值实际上是null派生的，所以相等性测试总是true</li>
+           <li style="color: red;">如果定义的变量装备在将来用于保存对象，那么最好将该变量初始化为null.(还没有体会到重要性哈哈，看后续碰到这问题再说) </li>
+           <li>体现 null 作为空对象指针的惯例</li>
+         </ul>
+       </div>
+
+       <script type="text/javascript"> 
+         var car = null;
+         alert(typeof car);      //"object"
+
+         if (car != null) {
+          //对car 对象执行某些操作
+         }
+         alert(null==undefined);//true
+         </script>  
+     </body>
+
+</html>
